@@ -12,6 +12,10 @@ app.get("/ask", (req, res) => {
     res.render("ask");
 });
 
+app.post("/askSave", (req, res) => {
+    res.send("We received the form!")
+});
+
 
 
 app.listen(3000, () => {
@@ -19,4 +23,4 @@ app.listen(3000, () => {
 });
 
 
-// AULA 31
+// AULA 37
