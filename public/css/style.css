@@ -6,3 +6,8 @@ body{
 #form-ask {
     margin-top: 5vh;
 }
+
+.button {
+    display: flex;
+    border: 1px solid red;
+}
