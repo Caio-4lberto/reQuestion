@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
+const Question = require("./database/Question")
 
 //DATABASE_____________________________________________________
 connection
@@ -24,17 +25,27 @@ app.use(bodyParser.json());
 
 //ROTAS
 app.get("/", (req, res) => {
-    res.render("index");
+    Question.findAll({ raw: true }).then(questions => {
+        res.render("index", {
+            questions: questions
+        });
+    });
 });
 
 app.get("/ask", (req, res) => {
     res.render("ask");
 });
 
-app.post("/askSave", (req, res) => {
+app.post("/questionSave", (req, res) => {
     var title = req.body.title;        //O body REFERE-SE AO BODYPARSER E O title AO NAME DO INPUT
     var description = req.body.description;
-    res.send("We received the form! title " + title + " description " + description)
+    // res.send("We received the form! title " + title + " description " + description)
+    Question.create({
+        title: title,
+        description: description
+    }).then(() => {
+        res.redirect("/")
+    })
 });
 
 
