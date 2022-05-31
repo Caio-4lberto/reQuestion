@@ -11,3 +11,28 @@ body{
     display: flex;
     border: 1px solid red;
 }
+
+.title-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.link-ask{
+    border: 1px solid red;
+    /* padding: ; */
+}
+.btn-ask{
+    padding: 20% 50% 20% 50%;
+    border: none;
+    padding-top: 3px;
+    text-decoration: none;
+    color: gray;
+}
+
+.btn-ask:hover{
+    background-color: rgb(215, 113, 215);
+    transition: 300ms;
+}

@@ -12,7 +12,7 @@ connection
     })
     .catch((msgErro) => {
         console.log(msgErro);
-    })
+    })  
 //____________________________________________________________
 
 
@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 
 //ROTAS
 app.get("/", (req, res) => {
-    Question.findAll({ raw: true }).then(questions => {
+    Question.findAll({ raw: true, order:[ ['id', 'DESC'] ]}).then(questions => {
         res.render("index", {
             questions: questions
         });
@@ -48,6 +48,20 @@ app.post("/questionSave", (req, res) => {
     })
 });
 
+app.get("/question/:id", (req, res) => {
+    var id = req.params.id;
+    Question.findOne({
+        where: {id: id}
+    }).then(question => {
+        if(question != undefined){ //PERGUNTA ACHADA
+            res.render("question",{
+                question: question
+            });
+        }else{ //PERGUNTA NÃO ENCONTRADA
+            res.redirect("/");
+        }
+    });
+});
 
 
 app.listen(3000, () => {
