@@ -5,9 +5,21 @@
 
     <div class="container">
         <hr>
-        <h1 style="color: #FFFFFF;"><%= question.title %></h1>
-        <p> <%= question.description %> </p>
+        <div class="card">
+            <div class="card-body" style="text-align: center;">
+                <h1><%= question.title %></h1>
+                <p> <%= question.description %> </p>
+            </div>
+        </div>
+        
         <hr>
+
+        <form action="">
+            <h3 style="color: #FFFFFF;">To Answer</h3>
+            <label for="" style="color: #FFFFFF;"> Answer </label>
+            <textarea placeholder="Insert the Answer" name="body" class="form-control"></textarea> <br>
+            <button type="submit" class="btn btn-light"> Answer </button>
+        </form>
     </div>
 
 </body>
