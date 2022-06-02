@@ -4,7 +4,7 @@
     <%- include ('./partials/navbar.ejs') %>
 
     <div class="container">
-        <hr>
+        <br>
         <div class="card">
             <div class="card-body" style="text-align: center;">
                 <h1><%= question.title %></h1>
@@ -12,12 +12,13 @@
             </div>
         </div>
         
-        <hr>
+        <br>
 
-        <form action="">
-            <h3 style="color: #FFFFFF;">To Answer</h3>
+        <form method="POST" action="/answer">  <!--ROUTE ANSWER DO INDEX.JS-->
+            <h3 style="color: #FFFFFF; text-decoration: underline;">To Answer</h3>
             <label for="" style="color: #FFFFFF;"> Answer </label>
-            <textarea placeholder="Insert the Answer" name="body" class="form-control"></textarea> <br>
+            <textarea placeholder="Insert the Answer" name="body" class="form-control" rows="6"></textarea> <br>
+            <input type="hidden" name="question" value="<%= question.id %>" >
             <button type="submit" class="btn btn-light"> Answer </button>
         </form>
     </div>

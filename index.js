@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
-const Question = require("./database/Question")
+const Question = require("./database/Question");
 const Answer = require("./database/Answer")
 
 //DATABASE_____________________________________________________
@@ -62,6 +62,17 @@ app.get("/question/:id", (req, res) => {
             res.redirect("/");
         }
     });
+});
+
+app.post("/answer", (req, res) => {
+    var body = req.body.body;
+    var questionId = req.body.question;
+    Answer.create({
+        body: body,
+        answerId: questionId
+    }).then(() => {
+        res.redirect("/question/" + questionId);
+    })
 });
 
 

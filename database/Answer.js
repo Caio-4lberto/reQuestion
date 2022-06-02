@@ -12,3 +12,5 @@ const Answer = connection.define("answer", {
 })
 
 Answer.sync({force: false});
+
+module.exports = Answer;
