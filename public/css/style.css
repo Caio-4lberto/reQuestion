@@ -36,3 +36,16 @@ body{
     background-color: rgb(215, 113, 215);
     transition: 300ms;
 }
+
+i {
+    color: #845EC2; 
+}
+
+.icon-action{
+    margin-left: 15%;
+}
+
+#question-group:hover{
+    box-shadow: 6px 10px 0px rgba(0,0,0,0.2);
+}
+

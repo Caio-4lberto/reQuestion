@@ -64,16 +64,33 @@ app.get("/question/:id", (req, res) => {
     });
 });
 
+
+//POST OF THE ANSWER TABLE
 app.post("/answer", (req, res) => {
     var body = req.body.body;
     var questionId = req.body.question;
     Answer.create({
         body: body,
-        answerId: questionId
+        questionId: questionId
     }).then(() => {
         res.redirect("/question/" + questionId);
     })
 });
+
+//DELETE 
+//     async function teste(questionId) {
+ 
+//         await Question.destroy({
+//           where: {
+//               id: questionId
+//           }
+//       }).then(() => {
+//           console.log("ERRO");
+//       });
+//     console.log('fim');
+//   };
+
+
 
 
 app.listen(3000, () => {

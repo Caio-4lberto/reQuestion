@@ -6,7 +6,7 @@ const Answer = connection.define("answer", {
         type: Sequelize.TEXT,
         allowNull: false
     },
-    answerId: {
+    questionId: {
         type: Sequelize.INTEGER
     }
 })
