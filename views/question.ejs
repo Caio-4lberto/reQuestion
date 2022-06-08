@@ -23,5 +23,13 @@
         </form>
     </div>
 
+    <hr>
+    <h3>Answer(s)</h3>
+    <hr>
+    <% answers.forEach(answer => { %>
+        <br>
+        <%= answer.body %>
+    <% }) %>
+
 </body>
 </html>

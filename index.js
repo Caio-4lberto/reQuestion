@@ -54,10 +54,14 @@ app.get("/question/:id", (req, res) => {
     Question.findOne({
         where: {id: id}
     }).then(question => {
-        if(question != undefined){ //PERGUNTA ACHADA
+        if(question != undefined){    //PERGUNTA ENCONTRADA
+            Answer.findAll({ where: {questionId: question.id} 
+            }).then(answers => {
             res.render("question",{
-                question: question
+                question: question,
+                answers: answers
             });
+        });
         }else{ //PERGUNTA NÃO ENCONTRADA
             res.redirect("/");
         }
