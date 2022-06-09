@@ -24,12 +24,17 @@
     </div>
 
     <hr>
-    <h3>Answer(s)</h3>
+    <h3 style="text-align: center; color: #FFFFFF">Answer(s)</h3>
     <hr>
+
     <% answers.forEach(answer => { %>
         <br>
-        <%= answer.body %>
-    <% }) %>
+    <div class="card"  style="margin: 0 5% 0 5%;">
+        <div class="card-body">
+                <%= answer.body %>
+            </div>
+        </div>
+        <% }) %>
 
 </body>
 </html>
