@@ -86,17 +86,17 @@ app.post("/answer", (req, res) => {
 });
 
 //DELETE 
-//     async function teste(questionId) {
- 
-//         await Question.destroy({
-//           where: {
-//               id: questionId
-//           }
-//       }).then(() => {
-//           console.log("ERRO");
-//       });
-//     console.log('fim');
-//   };
+app.post("/delete", (req, res) => {
+    var questionId = req.body.id;
+    
+    Question.destroy({
+       where: {
+        id: questionId
+       }
+    }).then(() => {
+        res.redirect("/")
+    })
+});
 
 
 
