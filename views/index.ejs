@@ -18,40 +18,63 @@
         
         <% questions.forEach(question => { %>
             <!--ID POR ATIVIDADE-->
-            <form method="POST" action="/delete" >
-                <input type="hidden" name="id" value="<%= question.id %>" >
-            </form>							
-        <br>
-        <div class="card" id="question-group">
-            <div class="card-body">
-                <div class="row mb-3 d-flex align-items-center">
-                    <div class="col-sm-10">
-                        <h3> <%= question.title %> </h3>
-                    </div>
+            <br>
+            <div class="card" id="question-group">
+                <div class="card-body">
+                    <div class="row mb-3 d-flex align-items-center">
+                        <div class="col-sm-10">
+                            <h3> <%= question.title %> </h3>
+                        </div>
+                        
+                        
+                        
+                        <div class="col-sm-2 mt-2 d-flex justify-content-end" id="icon-group">
+                            <button type="button" class="icon-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fas fa-edit fa-lg"></i></a>
+                              </button>
 
-
-                    
-                    <div class="col-sm-2 mt-2 d-flex justify-content-end" id="icon-group">
-                        <a class="icon-action" href=""><i class="fas fa-edit fa-lg"></i></a>
-                        <a class="icon-action" href="/question/<%= question.id %>"><i class="fas fa-check-square fa-lg"></i> </a>
-                        <a class="icon-action" href="/delete"><i class="fas fa-trash-alt fa-lg" ></i> </a>
+                            <a class="icon-action" href="/question/<%= question.id %>"><i class="fas fa-check-square fa-lg"></i> </a>
+                            
+                            <form method="POST" action="/delete" class="icon-action">
+                                <input type="hidden" name="id" value="<%= question.id %>" >
+                                <button class="btn-delete"><i class="fas fa-trash-alt fa-lg" ></i> </button>
+                            </form>							
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="card">
-            <div class="card-body">
-                <h3> <%= question.title %> </h3>
-            </div>
-            <div class="card-footer">
-               <a href="/question/<%= question.id %>"><button class="btn btn-primary" > Answer </button> </a>
-            </div>
-        </div> -->
-        <% }) %>
 
+        
 
+        <!-- Button trigger modal -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit the question!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <form method="POST" action="/update">
+            <div class="modal-body">
+                    <input type="text" name="id" value="<%= question.id %>" >
+                    <label for="">Title</label>
+                    <input type="text" name="title" value="<%= question.title %>">
+                
+
+            </div>
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Confirm</button>
+            </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
 
     </div>
-
+    <% }) %>
 </body>
 </html>

@@ -45,7 +45,15 @@ i {
     margin-left: 15%;
 }
 
+.btn-delete{
+    border: none;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
 #question-group:hover{
     box-shadow: 6px 10px 0px rgba(0,0,0,0.2);
 }
+
+
 

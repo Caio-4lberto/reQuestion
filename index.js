@@ -85,25 +85,34 @@ app.post("/answer", (req, res) => {
     })
 });
 
+//UPDATE
+app.post("/update", (req, res) => {
+    var questionId = req.body.id;
+    var title = req.body.title;
+
+    Question.update({title: title},{
+        where: {
+            id: questionId
+        }
+    }).then(() => {
+        res.redirect("/");
+    })
+
+});
+
 //DELETE 
 app.post("/delete", (req, res) => {
     var questionId = req.body.id;
-    
     Question.destroy({
-       where: {
-        id: questionId
-       }
+        where: {
+            id: questionId
+        }
     }).then(() => {
         res.redirect("/")
     })
 });
 
 
-
-
 app.listen(3000, () => {
     console.log("List on the port http://localhost:3000/");
 });
-
-
-// AULA 37
