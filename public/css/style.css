@@ -9,7 +9,6 @@ body{
 
 .button {
     display: flex;
-    border: 1px solid red;
 }
 
 .title-main{
@@ -20,21 +19,15 @@ body{
     color: #FFFFFF;
 }
 
-.link-ask{
-    border: 1px solid red;
-    /* padding: ; */
-}
-.btn-ask{
-    padding: 20% 50% 20% 50%;
+#btn-ask{
+    background-color:#FF4BA8;
     border: none;
-    padding-top: 3px;
-    text-decoration: none;
-    color: gray;
+    box-shadow: 2px 5px 8px #56494E;
 }
 
-.btn-ask:hover{
-    background-color: rgb(215, 113, 215);
-    transition: 300ms;
+#btn-ask:hover{
+    color: #FF4BA8;
+    background-color: #FFFFFF;
 }
 
 i {
@@ -45,10 +38,14 @@ i {
     margin-left: 15%;
 }
 
-.btn-delete{
+.btn-icon{
     border: none;
     background-color: #FFFFFF;
     cursor: pointer;
+}
+
+#question-group{
+    transition: 300ms;
 }
 
 #question-group:hover{

@@ -7,10 +7,10 @@
         
         <div class="title-main">
             <div class="title-page">
-                <h1>Questions</h1>
+                <h1 style="text-align: center;text-shadow: 1px 1px 2px #FF4BA8;" >Questions</h1>
             </div>
-            <div class="">
-                <a class="lik-ask" href="ask"> <button class="btn-ask">Ask</button> </a>
+            <div>
+                <a href="ask"> <button class="btn btn-primary" id="btn-ask"><b>        Ask        </b></button> </a>
             </div>
         </div>
         <hr>
@@ -29,7 +29,7 @@
                         
                         
                         <div class="col-sm-2 mt-2 d-flex justify-content-end" id="icon-group">
-                            <button type="button" class="icon-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" class="btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i class="fas fa-edit fa-lg"></i>
                               </button>
 
@@ -37,7 +37,7 @@
                             
                             <form method="POST" action="/delete" class="icon-action">
                                 <input type="hidden" name="id" value="<%= question.id %>" >
-                                <button class="btn-delete"><i class="fas fa-trash-alt fa-lg" ></i> </button>
+                                <button class="btn-icon"><i class="fas fa-trash-alt fa-lg" ></i> </button>
                             </form>							
                     </div>
                 </div>
@@ -59,15 +59,13 @@
 
         <form method="POST" action="/update">
             <div class="modal-body">
-                    <input type="text" name="id" value="<%= question.id %>" >
-                    <label for="">Title</label>
-                    <input type="text" name="title" value="<%= question.title %>">
-                
-
-            </div>
-            <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Confirm</button>
-            </div>
+                    <input type="hidden" name="id" value="<%= question.id %>" >
+                    <label for="">Title</label><br>
+                    <input type="text" name="title" class="form-control" value="<%= question.title %>">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Confirm</button>
+                </div>
         </form>
 
       </div>
